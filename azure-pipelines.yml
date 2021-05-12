@@ -4,10 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- ${{ branch }}
+- main
 
 pool:
-  ${{ pool }}
+  vmImage: ubuntu-latest
+
 strategy:
   matrix:
     Python27:
