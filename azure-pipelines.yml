@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
--main
+- ${{ branch }}
 
 pool:
-  {{ pool }}
+  ${{ pool }}
 strategy:
   matrix:
     Python27:
