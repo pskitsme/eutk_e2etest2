@@ -3,12 +3,12 @@
 name: CI
 
 # Controls when the action will run. 
-on:
+trigger:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ AzPipLineEutkTest2ReadyAPI ]
   pull_request:
-    branches: [ main ]
+    branches: [ AzPipLineEutkTest2ReadyAPI ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
