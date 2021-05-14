@@ -10,7 +10,6 @@ pool:
 
 steps:
 - script: echo $(Build.BuildNumber) //output updated build number
-steps:
 - task: PythonScript@0
   displayName: 'Run a Python script'
   inputs:
