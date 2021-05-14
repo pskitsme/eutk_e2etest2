@@ -10,4 +10,9 @@ pool:
 
 steps:
 - script: echo $(Build.BuildNumber) //output updated build number
+steps:
+- task: PythonScript@0
+  displayName: 'Run a Python script'
+  inputs:
+    scriptPath: '$(System.DefaultWorkingDirectory)/_eutke2etest2/venv/Slenium test.py'
 
