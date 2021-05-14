@@ -7,9 +7,5 @@ trigger:
 - {{ branch }}
 pool: { vmImage: windows-2019 } # or whatever pool you use
 
-steps:
-- checkout: none
-- powershell: |
-    Write-Host "PSK1"
 
     
