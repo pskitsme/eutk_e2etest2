@@ -10,8 +10,6 @@ steps:
 
 pool: { vmImage: windows-2019 } # or whatever pool you use
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - checkout: none
 - powershell: |
     $SEARCH_PATH=$Env:Path
