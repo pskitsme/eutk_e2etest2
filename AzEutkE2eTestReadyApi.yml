@@ -4,16 +4,25 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
+- {{ branch }}
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  
+pool: { vmImage: windows-2019 } # or whatever pool you use
+steps:
+- checkout: none
+- powershell: |
+    $SEARCH_PATH=$Env:Path
+    Write-Host "##[debug] Found directories"
+    ForEach ($Dir in $SEARCH_PATH -split ";") {
+      Write-Host "$Dir"
+    }
+    Write-Host "PSK1"
+    Write-Host "PSK2"
+    Write-Host "##[debug] Found files"
+    ForEach ($Dir in $SEARCH_PATH -split ";") {
+      Get-ChildItem $Dir -File -ErrorAction Continue | ForEach-Object -Process {
+        Write-Host $_.FullName
+      }
+    }
